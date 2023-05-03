@@ -1,9 +1,9 @@
-import 'package:cloathy/feature/onboarding/screen/onbording_screen_second.dart';
+import 'package:cloathy/feature/home/screen/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+class OnboardingScreenSecond extends StatelessWidget {
+  const OnboardingScreenSecond({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +19,17 @@ class OnboardingScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: Center(
                     child: Image.asset(
-                        "assets/images/onboarding-01.png")), //TODO: Place an Image
+                        "assets/images/onboarding-02.png")), //TODO: Place an Image
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
-                  "NO MORE\nBORING THINGS",
+                  "EXPLORING THE\nFASHION TRENDS",
                   style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                 ),
               ),
               Text(
-                "Picking up accessories from\npopular European brands.",
+                "We form an assortment that\nfollows fashion trends.",
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -37,17 +37,8 @@ class OnboardingScreen extends StatelessWidget {
               ),
               Spacer(),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(context).push(CupertinoPageRoute(
-                          builder: (context) => OnboardingScreenSecond()));
-                      },
-                      child: Text(
-                        "Skip",
-                        style: TextStyle(color: Colors.grey, fontSize: 20),
-                      )),
                   TextButton(
                     style: ButtonStyle(
                         padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
@@ -60,10 +51,10 @@ class OnboardingScreen extends StatelessWidget {
                             MaterialStatePropertyAll(Colors.black)),
                     onPressed: () {
                       Navigator.of(context).push(CupertinoPageRoute(
-                          builder: (context) => OnboardingScreenSecond()));
+                          builder: (context) => HomeScreen()));
                     },
                     child: Text(
-                      "Next",
+                      "Done",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   )
