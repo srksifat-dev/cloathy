@@ -1,4 +1,5 @@
 import 'package:cloathy/feature/home/screen/home_screen.dart';
+import 'package:cloathy/feature/main_screen/screen/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +52,7 @@ class OnboardingScreenSecond extends StatelessWidget {
                             MaterialStatePropertyAll(Colors.black)),
                     onPressed: () {
                       Navigator.of(context).push(CupertinoPageRoute(
-                          builder: (context) => HomeScreen()));
+                          builder: (context) => MainScreen()));
                     },
                     child: Text(
                       "Done",
