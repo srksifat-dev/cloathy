@@ -9,9 +9,11 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   FocusNode searchFocusNode = FocusNode();
-  String filterRadioValue = "men";
+  List<String> filterRadioValues = ["men", "women", "children"];
+
   @override
   Widget build(BuildContext context) {
+    String currentValue = filterRadioValues[0];
     return GestureDetector(
       onTap: () {
         searchFocusNode.unfocus();
@@ -57,49 +59,104 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                       ),
                     )),
-                    IconButton(
-                        onPressed: () {
-                          showBottomSheet(
-                              context: context,
-                              builder: (context) {
-                                return Container(
-                                  height: 100,
-                                  color: Colors.amber,
-                                  // child: Column(
-                                  //   children: [
-                                  //     RadioListTile(
-                                  //         title: Text("Men"),
-                                  //         value: filterRadioValue,
-                                  //         groupValue: 1,
-                                  //         onChanged: (val) {
-                                  //           setState(() {
-                                  //             filterRadioValue = val.toString();
-                                  //           });
-                                  //         }),
-                                  //     RadioListTile(
-                                  //         title: Text("Women"),
-                                  //         value: filterRadioValue,
-                                  //         groupValue: 1,
-                                  //         onChanged: (val) {
-                                  //           setState(() {
-                                  //             filterRadioValue = val.toString();
-                                  //           });
-                                  //         }),
-                                  //     RadioListTile(
-                                  //         title: Text("Children"),
-                                  //         value: filterRadioValue,
-                                  //         groupValue: 1,
-                                  //         onChanged: (val) {
-                                  //           setState(() {
-                                  //             filterRadioValue = val.toString();
-                                  //           });
-                                  //         }),
-                                  //   ],
-                                  // ),
-                                );
-                              });
-                        },
-                        icon: Icon(Icons.filter_alt))
+                    Builder(builder: (context) {
+                      return IconButton(
+                          onPressed: () {
+                            showBottomSheet(
+                                context: context,
+                                builder: (context) {
+                                  return StatefulBuilder(
+                                    builder: (context, setState) {
+                                      return Container(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text(
+                                              "Filter",
+                                              style: TextStyle(
+                                                  fontSize: 40,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            RadioListTile(
+                                                title: Text("Men"),
+                                                value: filterRadioValues[0],
+                                                groupValue: currentValue,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    currentValue =
+                                                        val.toString();
+                                                  });
+                                                }),
+                                            RadioListTile(
+                                                title: Text("Women"),
+                                                value: filterRadioValues[1],
+                                                groupValue: currentValue,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    currentValue =
+                                                        val.toString();
+                                                  });
+                                                }),
+                                            RadioListTile(
+                                                title: Text("Children"),
+                                                value: filterRadioValues[2],
+                                                groupValue: currentValue,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    currentValue =
+                                                        val.toString();
+                                                  });
+                                                }),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 16.0),
+                                              child: TextButton(
+                                                  style: ButtonStyle(
+                                                      backgroundColor:
+                                                          MaterialStatePropertyAll(
+                                                              Colors.black),
+                                                      shape:
+                                                          MaterialStatePropertyAll(
+                                                        RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                            16,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      padding:
+                                                          MaterialStatePropertyAll(
+                                                              EdgeInsets
+                                                                  .symmetric(
+                                                                      vertical:
+                                                                          8))),
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Center(
+                                                    child: Text(
+                                                      "Apply",
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 20),
+                                                    ),
+                                                  )),
+                                            )
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(32),
+                                        topRight: Radius.circular(32))));
+                          },
+                          icon: Icon(Icons.filter_alt));
+                    })
                   ],
                 )
               ],
