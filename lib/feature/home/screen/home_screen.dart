@@ -1,3 +1,5 @@
+import 'package:cloathy/feature/search/screen/search_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,64 +13,52 @@ class _HomeScreenState extends State<HomeScreen> {
   FocusNode searchFocusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => searchFocusNode.unfocus(),
-      child: Scaffold(
-        backgroundColor: Color(0xfff3f3f3),
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                        child: TextField(
-                      focusNode: searchFocusNode,
-                      cursorColor: Colors.black,
-                      cursorHeight: 30,
-                      decoration: InputDecoration(
-                        hintText: "Search",
-                        suffixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(
-                            color: Colors.black,
-                            width: 2,
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(
-                            color: Colors.black,
-                            width: 2,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(
-                            color: Colors.black,
-                            width: 2,
-                          ),
-                        ),
+    return Scaffold(
+      backgroundColor: Color(0xfff3f3f3),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                      child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(CupertinoPageRoute(
+                          builder: (context) => SearchScreen()));
+                    },
+                    child: Container(
+                      height: 60,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black, width: 2),
+                        borderRadius: BorderRadius.circular(16),
                       ),
-                    )),
-                    IconButton(
-                        onPressed: () {
-                          showBottomSheet(
-                              context: context,
-                              builder: (context) {
-                                return Container(
-                                  height: 100,
-                                  color: Colors.amber,
-                                );
-                              });
-                        },
-                        icon: Icon(Icons.filter_alt))
-                  ],
-                )
-              ],
-            ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 16),
+                            child: Text(
+                              "Search",
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 18),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 16),
+                            child: Icon(
+                              Icons.search,
+                              color: Colors.grey,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  )),
+                ],
+              )
+            ],
           ),
         ),
       ),
