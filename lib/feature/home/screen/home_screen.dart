@@ -1,3 +1,5 @@
+import 'package:cloathy/dummy/dummy_category.dart';
+import 'package:cloathy/feature/home/widgets/category_card.dart';
 import 'package:cloathy/feature/search/screen/search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.of(context).push(CupertinoPageRoute(
                           builder: (context) => SearchScreen()));
                     },
+                    // Search and filtering section
                     child: Container(
                       height: 60,
                       decoration: BoxDecoration(
@@ -57,6 +60,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   )),
                 ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+
+              // Category section
+              SizedBox(
+                height: 100,
+                width: MediaQuery.of(context).size.width - 32,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    return categoryCard(
+                        label: categories[index].label,
+                        icon: categories[index].icon);
+                  },
+                  separatorBuilder: (_, __) {
+                    return SizedBox(
+                      width: 16,
+                    );
+                  },
+                ),
               )
             ],
           ),
