@@ -20,9 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xfff3f3f3),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
@@ -140,10 +141,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
 
-                // New Item Section
                 SizedBox(
                   height: 16,
                 ),
+
+                // New Item Section
                 Text(
                   "New Item",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -152,8 +154,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 16,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 30,
-                  width: MediaQuery.of(context).size.width * 100,
+                  height: MediaQuery.of(context).size.height * 0.32,
+                  width: MediaQuery.of(context).size.width,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
@@ -202,7 +204,69 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     itemCount: 10,
                   ),
-                )
+                ),
+
+                // Popular Item
+
+                Text(
+                  "Popular Item",
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.32,
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        width: 130,
+                        child: Column(
+                          children: [
+                            Stack(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(16),
+                                  child: Image.asset(
+                                    "assets/images/men.jpg",
+                                    height: 200,
+                                  ),
+                                ),
+                                IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(Icons.favorite_border))
+                              ],
+                            ),
+                            Text(
+                              "Product Name",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.grey),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "৳ 300",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                IconButton(
+                                    onPressed: () {}, icon: Icon(Icons.add))
+                              ],
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                    separatorBuilder: (_, __) => SizedBox(
+                      width: 16,
+                    ),
+                    itemCount: 10,
+                  ),
+                ),
               ],
             ),
           ),
