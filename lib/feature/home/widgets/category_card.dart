@@ -9,7 +9,7 @@ Widget categoryCard({required String label, required Widget icon}) {
         width: 70,
         decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
         child: Center(
-          child: SizedBox(height: 40, width: 40, child: icon),
+          child: SizedBox(height: 40, width: 40, child: Center(child: icon)),
         ),
       ),
       SizedBox(

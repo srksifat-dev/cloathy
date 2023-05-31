@@ -1,4 +1,5 @@
 import 'package:cloathy/dummy/dummy_category.dart';
+import 'package:cloathy/feature/home/screen/category_screen.dart';
 import 'package:cloathy/feature/home/widgets/category_card.dart';
 import 'package:cloathy/feature/search/screen/search_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -72,19 +73,37 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   height: 100,
                   width: MediaQuery.of(context).size.width - 32,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: categories.length,
-                    itemBuilder: (context, index) {
-                      return categoryCard(
-                          label: categories[index].label,
-                          icon: categories[index].icon);
-                    },
-                    separatorBuilder: (_, __) {
-                      return SizedBox(
+                  child: Row(
+                    children: [
+                      InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                    builder: (context) => CategoryScreen()));
+                          },
+                          child: categoryCard(
+                              label: "All", icon: Icon(Icons.category))),
+                      SizedBox(
                         width: 16,
-                      );
-                    },
+                      ),
+                      Expanded(
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: categories.length,
+                          itemBuilder: (context, index) {
+                            return categoryCard(
+                                label: categories[index].label,
+                                icon: categories[index].icon);
+                          },
+                          separatorBuilder: (_, __) {
+                            return SizedBox(
+                              width: 16,
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(
