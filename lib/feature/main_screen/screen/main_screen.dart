@@ -14,10 +14,10 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int tabIndex = 0;
   List<Widget> pages = [
-    HomeScreen(),
-    FavoriteScreen(),
-    CartScreen(),
-    ProfileScreen()
+    const HomeScreen(),
+    const FavoriteScreen(),
+    const CartScreen(),
+    const ProfileScreen()
   ];
 
   @override
@@ -30,9 +30,9 @@ class _MainScreenState extends State<MainScreen> {
             tabIndex = value;
           });
         },
-        selectedItemColor: Color(0xfffed97b),
+        selectedItemColor: const Color(0xfffed97b),
         unselectedItemColor: Colors.grey,
-        items: [
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: "Home",

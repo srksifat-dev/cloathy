@@ -19,7 +19,7 @@ class _SearchScreenState extends State<SearchScreen> {
         searchFocusNode.unfocus();
       },
       child: Scaffold(
-        backgroundColor: Color(0xfff3f3f3),
+        backgroundColor: const Color(0xfff3f3f3),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -35,24 +35,24 @@ class _SearchScreenState extends State<SearchScreen> {
                       // cursorHeight: 30,
                       decoration: InputDecoration(
                         hintText: "Search",
-                        suffixIcon: Icon(Icons.search),
+                        suffixIcon: const Icon(Icons.search),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.black,
                             width: 2,
                           ),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.black,
                             width: 2,
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.black,
                             width: 2,
                           ),
@@ -71,14 +71,14 @@ class _SearchScreenState extends State<SearchScreen> {
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            Text(
+                                            const Text(
                                               "Filter",
                                               style: TextStyle(
                                                   fontSize: 40,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             RadioListTile(
-                                                title: Text("Men"),
+                                                title: const Text("Men"),
                                                 value: filterRadioValues[0],
                                                 groupValue: currentValue,
                                                 onChanged: (val) {
@@ -88,7 +88,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                   });
                                                 }),
                                             RadioListTile(
-                                                title: Text("Women"),
+                                                title: const Text("Women"),
                                                 value: filterRadioValues[1],
                                                 groupValue: currentValue,
                                                 onChanged: (val) {
@@ -98,7 +98,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                   });
                                                 }),
                                             RadioListTile(
-                                                title: Text("Children"),
+                                                title: const Text("Children"),
                                                 value: filterRadioValues[2],
                                                 groupValue: currentValue,
                                                 onChanged: (val) {
@@ -114,7 +114,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                               child: TextButton(
                                                   style: ButtonStyle(
                                                       backgroundColor:
-                                                          MaterialStatePropertyAll(
+                                                          const MaterialStatePropertyAll(
                                                               Colors.black),
                                                       shape:
                                                           MaterialStatePropertyAll(
@@ -127,7 +127,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                         ),
                                                       ),
                                                       padding:
-                                                          MaterialStatePropertyAll(
+                                                          const MaterialStatePropertyAll(
                                                               EdgeInsets
                                                                   .symmetric(
                                                                       vertical:
@@ -135,7 +135,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                   onPressed: () {
                                                     Navigator.pop(context);
                                                   },
-                                                  child: Center(
+                                                  child: const Center(
                                                     child: Text(
                                                       "Apply",
                                                       style: TextStyle(
@@ -150,12 +150,12 @@ class _SearchScreenState extends State<SearchScreen> {
                                     },
                                   );
                                 },
-                                shape: RoundedRectangleBorder(
+                                shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(32),
                                         topRight: Radius.circular(32))));
                           },
-                          icon: Icon(Icons.filter_alt));
+                          icon: const Icon(Icons.filter_alt));
                     })
                   ],
                 )

@@ -12,29 +12,29 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16.0),
                 child: Text(
                   "Profile Name",
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
               ),
-              Text(
+              const Text(
                 "+880 1111111111",
                 style: TextStyle(fontSize: 20, color: Colors.grey),
               ),
-              Text(
+              const Text(
                 "profileName@gmail.com",
                 style: TextStyle(fontSize: 20, color: Colors.grey),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16)),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
                   child: Row(
                     children: [
                       Expanded(
@@ -60,8 +60,8 @@ class ProfileScreen extends StatelessWidget {
               Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16)),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
                   child: Row(
                     children: [
                       Expanded(

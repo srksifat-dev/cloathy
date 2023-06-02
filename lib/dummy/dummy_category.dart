@@ -5,55 +5,55 @@ import '../models/category.dart';
 List<Category> categories = [
   Category(
       label: "Clothing",
-      icon: Text(
+      icon: const Text(
         "👚",
         style: TextStyle(fontSize: 30),
       )),
   Category(
       label: "Accessories",
-      icon: Text(
+      icon: const Text(
         "☂",
         style: TextStyle(fontSize: 30),
       )),
   Category(
       label: "Bags",
-      icon: Text(
+      icon: const Text(
         "💼",
         style: TextStyle(fontSize: 30),
       )),
   Category(
       label: "Glasses",
-      icon: Text(
+      icon: const Text(
         "🕶",
         style: TextStyle(fontSize: 30),
       )),
   Category(
       label: "Shorts",
-      icon: Text(
+      icon: const Text(
         "🩳",
         style: TextStyle(fontSize: 30),
       )),
   Category(
       label: "T-shirts",
-      icon: Text(
+      icon: const Text(
         "👕",
         style: TextStyle(fontSize: 30),
       )),
   Category(
       label: "Shirts",
-      icon: Text(
+      icon: const Text(
         "👔",
         style: TextStyle(fontSize: 30),
       )),
   Category(
       label: "Pants",
-      icon: Text(
+      icon: const Text(
         "👖",
         style: TextStyle(fontSize: 30),
       )),
   Category(
       label: "Panjabi",
-      icon: Text(
+      icon: const Text(
         "👘",
         style: TextStyle(fontSize: 30),
       )),

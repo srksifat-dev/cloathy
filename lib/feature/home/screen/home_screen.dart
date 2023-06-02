@@ -1,6 +1,7 @@
 import 'package:cloathy/dummy/dummy_category.dart';
 import 'package:cloathy/feature/home/screen/category_screen.dart';
 import 'package:cloathy/feature/home/widgets/category_card.dart';
+import 'package:cloathy/feature/home/widgets/my_card.dart';
 import 'package:cloathy/feature/search/screen/search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xfff3f3f3),
+      backgroundColor: const Color(0xfff3f3f3),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(CupertinoPageRoute(
-                            builder: (context) => SearchScreen()));
+                            builder: (context) => const SearchScreen()));
                       },
                       // Search and filtering section
                       child: Container(
@@ -41,11 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           border: Border.all(color: Colors.black, width: 2),
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(left: 16),
+                              padding: EdgeInsets.only(left: 16),
                               child: Text(
                                 "Search",
                                 style:
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(right: 16),
+                              padding: EdgeInsets.only(right: 16),
                               child: Icon(
                                 Icons.search,
                                 color: Colors.grey,
@@ -65,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     )),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
 
@@ -80,11 +81,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                    builder: (context) => CategoryScreen()));
+                                    builder: (context) => const CategoryScreen()));
                           },
                           child: categoryCard(
-                              label: "All", icon: Icon(Icons.category))),
-                      SizedBox(
+                              label: "All", icon: const Icon(Icons.category))),
+                      const SizedBox(
                         width: 16,
                       ),
                       Expanded(
@@ -97,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 icon: categories[index].icon);
                           },
                           separatorBuilder: (_, __) {
-                            return SizedBox(
+                            return const SizedBox(
                               width: 16,
                             );
                           },
@@ -106,70 +107,42 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
 
                 // Offer section
-                Card(
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 80,
-                          width: 80,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: Color(0xfff3f3f3)),
-                          child: Center(
-                            child: Icon(
-                              Icons.percent,
-                              size: 40,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "50% OFF",
-                                style: TextStyle(
-                                    fontSize: 35, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "on all woman's shoes",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.grey,
-                        )
-                      ],
-                    ),
+                myCard(
+                  icon: const Icon(
+                    Icons.percent,
+                    size: 40,
+                  ),
+                  middle: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "50% OFF",
+                        style: TextStyle(
+                            fontSize: 35, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "on all woman's shoes",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
                   ),
                 ),
 
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
 
                 // New Item Section
-                Text(
+                const Text(
                   "New Item",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 SizedBox(
@@ -193,10 +166,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 IconButton(
                                     onPressed: () {},
-                                    icon: Icon(Icons.favorite_border))
+                                    icon: const Icon(Icons.favorite_border))
                               ],
                             ),
-                            Text(
+                            const Text(
                               "Product Name",
                               style:
                                   TextStyle(fontSize: 20, color: Colors.grey),
@@ -204,21 +177,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                const Text(
                                   "৳ 300",
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 IconButton(
-                                    onPressed: () {}, icon: Icon(Icons.add))
+                                    onPressed: () {}, icon: const Icon(Icons.add))
                               ],
                             )
                           ],
                         ),
                       );
                     },
-                    separatorBuilder: (_, __) => SizedBox(
+                    separatorBuilder: (_, __) => const SizedBox(
                       width: 16,
                     ),
                     itemCount: 10,
@@ -227,11 +200,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 // Popular Item
 
-                Text(
+                const Text(
                   "Popular Item",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 SizedBox(
@@ -255,10 +228,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 IconButton(
                                     onPressed: () {},
-                                    icon: Icon(Icons.favorite_border))
+                                    icon: const Icon(Icons.favorite_border))
                               ],
                             ),
-                            Text(
+                            const Text(
                               "Product Name",
                               style:
                                   TextStyle(fontSize: 20, color: Colors.grey),
@@ -266,21 +239,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                const Text(
                                   "৳ 300",
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 IconButton(
-                                    onPressed: () {}, icon: Icon(Icons.add))
+                                    onPressed: () {}, icon: const Icon(Icons.add))
                               ],
                             )
                           ],
                         ),
                       );
                     },
-                    separatorBuilder: (_, __) => SizedBox(
+                    separatorBuilder: (_, __) => const SizedBox(
                       width: 16,
                     ),
                     itemCount: 10,

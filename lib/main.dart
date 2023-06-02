@@ -1,4 +1,3 @@
-import 'package:cloathy/feature/home/screen/home_screen.dart';
 import 'package:cloathy/feature/onboarding/screen/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: OnboardingScreen(),
     );

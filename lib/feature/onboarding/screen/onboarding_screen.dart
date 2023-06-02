@@ -21,48 +21,48 @@ class OnboardingScreen extends StatelessWidget {
                     child: Image.asset(
                         "assets/images/onboarding-01.png")), //TODO: Place an Image
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16),
                 child: Text(
                   "NO MORE\nBORING THINGS",
                   style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                 ),
               ),
-              Text(
+              const Text(
                 "Picking up accessories from\npopular European brands.",
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey),
               ),
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextButton(
                       onPressed: () {
                         Navigator.of(context).push(CupertinoPageRoute(
-                          builder: (context) => OnboardingScreenSecond()));
+                          builder: (context) => const OnboardingScreenSecond()));
                       },
-                      child: Text(
+                      child: const Text(
                         "Skip",
                         style: TextStyle(color: Colors.grey, fontSize: 20),
                       )),
                   TextButton(
                     style: ButtonStyle(
-                        padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
+                        padding: const MaterialStatePropertyAll(EdgeInsets.symmetric(
                           horizontal: 32,
                           vertical: 16,
                         )),
                         shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16))),
                         backgroundColor:
-                            MaterialStatePropertyAll(Colors.black)),
+                            const MaterialStatePropertyAll(Colors.black)),
                     onPressed: () {
                       Navigator.of(context).push(CupertinoPageRoute(
-                          builder: (context) => OnboardingScreenSecond()));
+                          builder: (context) => const OnboardingScreenSecond()));
                     },
-                    child: Text(
+                    child: const Text(
                       "Next",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),

@@ -1,3 +1,5 @@
+import 'package:cloathy/dummy/dummy_category.dart';
+import 'package:cloathy/feature/home/widgets/my_card.dart';
 import 'package:flutter/material.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -13,8 +15,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: const Text(
           "Categories",
           style: TextStyle(color: Colors.black),
         ),
@@ -25,7 +27,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Row(
@@ -42,10 +44,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       decoration: BoxDecoration(
                           border: selectedCategory == "Man"
                               ? Border.all()
-                              : Border(),
+                              : const Border(),
                           borderRadius: BorderRadius.circular(16)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      child: const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 16.0),
                         child: Center(
                             child: Text(
                           "Man",
@@ -68,10 +70,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       decoration: BoxDecoration(
                           border: selectedCategory == "Woman"
                               ? Border.all()
-                              : Border(),
+                              : const Border(),
                           borderRadius: BorderRadius.circular(16)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      child: const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 16.0),
                         child: Center(
                             child: Text(
                           "Woman",
@@ -84,7 +86,29 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   ),
                 ),
               ],
-            )
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Expanded(
+              child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return myCard(
+                    icon: categories[index].icon,
+                    middle: Text(
+                      categories[index].label,
+                      style: const TextStyle(
+                        fontSize: 25,
+                      ),
+                    ),
+                  );
+                },
+                separatorBuilder: (_, __) => const SizedBox(
+                  height: 16,
+                ),
+                itemCount: categories.length,
+              ),
+            ),
           ],
         ),
       ),

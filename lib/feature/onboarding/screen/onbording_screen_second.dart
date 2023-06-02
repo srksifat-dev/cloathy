@@ -22,39 +22,39 @@ class OnboardingScreenSecond extends StatelessWidget {
                     child: Image.asset(
                         "assets/images/onboarding-02.png")), //TODO: Place an Image
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16),
                 child: Text(
                   "EXPLORING THE\nFASHION TRENDS",
                   style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                 ),
               ),
-              Text(
+              const Text(
                 "We form an assortment that\nfollows fashion trends.",
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey),
               ),
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
                     style: ButtonStyle(
-                        padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
+                        padding: const MaterialStatePropertyAll(EdgeInsets.symmetric(
                           horizontal: 32,
                           vertical: 16,
                         )),
                         shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16))),
                         backgroundColor:
-                            MaterialStatePropertyAll(Colors.black)),
+                            const MaterialStatePropertyAll(Colors.black)),
                     onPressed: () {
                       Navigator.of(context).push(CupertinoPageRoute(
-                          builder: (context) => MainScreen()));
+                          builder: (context) => const MainScreen()));
                     },
-                    child: Text(
+                    child: const Text(
                       "Done",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
