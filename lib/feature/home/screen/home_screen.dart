@@ -33,7 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(CupertinoPageRoute(
-                            builder: (context) => const SearchScreen()));
+                            builder: (context) => SearchScreen(
+                                )));
                       },
                       // Search and filtering section
                       child: Container(
@@ -81,7 +82,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                    builder: (context) => const CategoryScreen()));
+                                    builder: (context) =>
+                                        const CategoryScreen()));
                           },
                           child: categoryCard(
                               label: "All", icon: const Icon(Icons.category))),
@@ -184,7 +186,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       fontWeight: FontWeight.bold),
                                 ),
                                 IconButton(
-                                    onPressed: () {}, icon: const Icon(Icons.add))
+                                    onPressed: () {},
+                                    icon: const Icon(Icons.add))
                               ],
                             )
                           ],
@@ -246,7 +249,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       fontWeight: FontWeight.bold),
                                 ),
                                 IconButton(
-                                    onPressed: () {}, icon: const Icon(Icons.add))
+                                    onPressed: () {},
+                                    icon: const Icon(Icons.add))
                               ],
                             )
                           ],

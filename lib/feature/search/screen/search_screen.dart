@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({Key? key}) : super(key: key);
+  SearchScreen({Key? key, this.query}) : super(key: key);
+  final String? query;
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  TextEditingController searchController = TextEditingController();
   FocusNode searchFocusNode = FocusNode();
   List<String> filterRadioValues = ["men", "women", "children"];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    if(widget.query != null){
+      searchController.text = widget.query!;
+    }
+      
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +41,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   children: [
                     Expanded(
                         child: TextField(
+                          controller: searchController,
                       autofocus: true,
                       focusNode: searchFocusNode,
                       cursorColor: Colors.black,

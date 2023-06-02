@@ -1,5 +1,7 @@
 import 'package:cloathy/dummy/dummy_category.dart';
 import 'package:cloathy/feature/home/widgets/my_card.dart';
+import 'package:cloathy/feature/search/screen/search_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -93,12 +95,22 @@ class _CategoryScreenState extends State<CategoryScreen> {
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, index) {
-                  return myCard(
-                    icon: categories[index].icon,
-                    middle: Text(
-                      categories[index].label,
-                      style: const TextStyle(
-                        fontSize: 25,
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => SearchScreen(
+                                    query: categories[index].label,
+                                  )));
+                    },
+                    child: myCard(
+                      icon: categories[index].icon,
+                      middle: Text(
+                        categories[index].label,
+                        style: const TextStyle(
+                          fontSize: 25,
+                        ),
                       ),
                     ),
                   );
