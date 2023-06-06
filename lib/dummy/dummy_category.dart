@@ -57,4 +57,10 @@ List<Category> categories = [
         "👘",
         style: TextStyle(fontSize: 30),
       )),
+      Category(
+      label: "Shoes",
+      icon: const Text(
+        "👟",
+        style: TextStyle(fontSize: 30),
+      )),
 ];

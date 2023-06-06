@@ -1,7 +1,9 @@
 import 'package:cloathy/dummy/dummy_category.dart';
+import 'package:cloathy/dummy/dummy_product.dart';
 import 'package:cloathy/feature/home/screen/category_screen.dart';
 import 'package:cloathy/feature/home/widgets/category_card.dart';
 import 'package:cloathy/feature/home/widgets/my_card.dart';
+import 'package:cloathy/feature/home/widgets/product_card.dart';
 import 'package:cloathy/feature/search/screen/search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,8 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(CupertinoPageRoute(
-                            builder: (context) => SearchScreen(
-                                )));
+                            builder: (context) => SearchScreen()));
                       },
                       // Search and filtering section
                       child: Container(
@@ -153,46 +154,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return SizedBox(
-                        width: 130,
-                        child: Column(
-                          children: [
-                            Stack(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16),
-                                  child: Image.asset(
-                                    "assets/images/men.jpg",
-                                    height: 200,
-                                  ),
-                                ),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.favorite_border))
-                              ],
-                            ),
-                            const Text(
-                              "Product Name",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.grey),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(
-                                  "৳ 300",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.add))
-                              ],
-                            )
-                          ],
-                        ),
-                      );
+                      return productCard(
+                          imageUrl: dummyProducts[index].imageUrl,
+                          productName: dummyProducts[index].productName,
+                          price: dummyProducts[index].price);
                     },
                     separatorBuilder: (_, __) => const SizedBox(
                       width: 16,
@@ -216,46 +181,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return SizedBox(
-                        width: 130,
-                        child: Column(
-                          children: [
-                            Stack(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16),
-                                  child: Image.asset(
-                                    "assets/images/men.jpg",
-                                    height: 200,
-                                  ),
-                                ),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.favorite_border))
-                              ],
-                            ),
-                            const Text(
-                              "Product Name",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.grey),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(
-                                  "৳ 300",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(Icons.add))
-                              ],
-                            )
-                          ],
-                        ),
-                      );
+                      return productCard(
+                          imageUrl: dummyProducts[index].imageUrl,
+                          productName: dummyProducts[index].productName,
+                          price: dummyProducts[index].price);
                     },
                     separatorBuilder: (_, __) => const SizedBox(
                       width: 16,
