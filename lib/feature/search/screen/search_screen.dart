@@ -1,4 +1,7 @@
+import 'package:cloathy/dummy/dummy_product.dart';
 import 'package:flutter/material.dart';
+
+import '../../../models/product.dart';
 
 class SearchScreen extends StatefulWidget {
   SearchScreen({Key? key, this.query}) : super(key: key);
@@ -12,15 +15,36 @@ class _SearchScreenState extends State<SearchScreen> {
   TextEditingController searchController = TextEditingController();
   FocusNode searchFocusNode = FocusNode();
   List<String> filterRadioValues = ["men", "women", "children"];
-
+  List<Product> searchedProducts = [];
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    if(widget.query != null){
+    if (widget.query != null) {
       searchController.text = widget.query!;
+      search(widget.query!);
+    } else {
+      searchedProducts = dummyProducts;
     }
-      
+  }
+
+  void search(String query) {
+    List<Product> results = [];
+    if (query.isEmpty) {
+      results = dummyProducts;
+    } else {
+      results = dummyProducts
+          .where((product) =>
+              product.productName.toLowerCase().contains(query.toLowerCase()) ||
+              product.category.label
+                  .toLowerCase()
+                  .contains(query.toLowerCase()))
+          .toList();
+    }
+
+    setState(() {
+      searchedProducts = results;
+    });
   }
 
   @override
@@ -41,7 +65,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   children: [
                     Expanded(
                         child: TextField(
-                          controller: searchController,
+                      controller: searchController,
                       autofocus: true,
                       focusNode: searchFocusNode,
                       cursorColor: Colors.black,
@@ -71,6 +95,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           ),
                         ),
                       ),
+                      onChanged: (value) => search(value),
                     )),
                     Builder(builder: (context) {
                       return IconButton(
@@ -171,6 +196,53 @@ class _SearchScreenState extends State<SearchScreen> {
                           icon: const Icon(Icons.filter_alt));
                     })
                   ],
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Expanded(
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 8,
+                        childAspectRatio: 0.8),
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(16),
+                                child: Image.asset(
+                                  searchedProducts[index].imageUrl,
+                                  height: 160,
+                                ),
+                              ),
+                              IconButton(
+                                  onPressed: () {}, icon: Icon(Icons.favorite))
+                            ],
+                          ),
+                          Text(
+                            searchedProducts[index].productName,
+                            style: TextStyle(fontSize: 20, color: Colors.grey),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                searchedProducts[index].price.toString(),
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                              IconButton(
+                                  onPressed: () {}, icon: Icon(Icons.add))
+                            ],
+                          )
+                        ],
+                      );
+                    },
+                    itemCount: searchedProducts.length,
+                  ),
                 )
               ],
             ),

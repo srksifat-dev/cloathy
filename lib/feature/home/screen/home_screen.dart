@@ -96,9 +96,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           scrollDirection: Axis.horizontal,
                           itemCount: categories.length,
                           itemBuilder: (context, index) {
-                            return categoryCard(
-                                label: categories[index].label,
-                                icon: categories[index].icon);
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    CupertinoPageRoute(
+                                        builder: (context) => SearchScreen(
+                                              query: categories[index].label,
+                                            )));
+                              },
+                              child: categoryCard(
+                                  label: categories[index].label,
+                                  icon: categories[index].icon),
+                            );
                           },
                           separatorBuilder: (_, __) {
                             return const SizedBox(
