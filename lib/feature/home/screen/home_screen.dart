@@ -1,4 +1,5 @@
 import 'package:cloathy/dummy/dummy_category.dart';
+import 'package:cloathy/dummy/dummy_offer.dart';
 import 'package:cloathy/dummy/dummy_product.dart';
 import 'package:cloathy/feature/home/screen/category_screen.dart';
 import 'package:cloathy/feature/home/widgets/category_card.dart';
@@ -7,6 +8,8 @@ import 'package:cloathy/feature/home/widgets/product_card.dart';
 import 'package:cloathy/feature/search/screen/search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../offer/screen/offer_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -125,24 +128,32 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
                 // Offer section
-                myCard(
-                  icon: const Icon(
-                    Icons.percent,
-                    size: 40,
-                  ),
-                  middle: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "50% OFF",
-                        style: TextStyle(
-                            fontSize: 35, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "on all woman's shoes",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(CupertinoPageRoute(
+                        builder: (context) => OfferScreen(
+                              offerTitle: dummy_offers.first.offerTitle,
+                            )));
+                  },
+                  child: myCard(
+                    icon: Icon(
+                      dummy_offers.first.icon,
+                      size: 40,
+                    ),
+                    middle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          dummy_offers.first.offerTitle,
+                          style: TextStyle(
+                              fontSize: 35, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          dummy_offers.first.subtitle,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
 
