@@ -102,7 +102,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           CupertinoPageRoute(
                               builder: (context) => SearchScreen(
                                     query: categories[index].label,
-                                  )));
+                                  ),),);
                     },
                     child: myCard(
                       icon: categories[index].icon,

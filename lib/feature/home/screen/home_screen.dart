@@ -5,6 +5,7 @@ import 'package:cloathy/feature/home/screen/category_screen.dart';
 import 'package:cloathy/feature/home/widgets/category_card.dart';
 import 'package:cloathy/feature/home/widgets/my_card.dart';
 import 'package:cloathy/feature/home/widgets/product_card.dart';
+import 'package:cloathy/feature/product/screens/product_details.dart';
 import 'package:cloathy/feature/search/screen/search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -175,10 +176,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return productCard(
-                          imageUrl: dummyProducts[index].imageUrl,
-                          productName: dummyProducts[index].productName,
-                          price: dummyProducts[index].price);
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductDetails(
+                                      product: dummyProducts[index])));
+                        },
+                        child: productCard(
+                            imageUrl: dummyProducts[index].imageUrl,
+                            productName: dummyProducts[index].productName,
+                            price: dummyProducts[index].price),
+                      );
                     },
                     separatorBuilder: (_, __) => const SizedBox(
                       width: 16,
