@@ -1,3 +1,5 @@
+import 'package:cloathy/feature/cart/screen/place_order_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatefulWidget {
@@ -33,8 +35,7 @@ class _CartScreenState extends State<CartScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
-              padding:
-                  EdgeInsets.symmetric(vertical: 16.0, horizontal: 16),
+              padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16),
               child: Text(
                 "Your Cart",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -179,7 +180,12 @@ class _CartScreenState extends State<CartScreen> {
                       style: const ButtonStyle(
                           backgroundColor:
                               MaterialStatePropertyAll(Colors.black)),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => PlaceOrderScreen()));
+                      },
                       child: const Text("Place the Order"),
                     ),
                   ],
