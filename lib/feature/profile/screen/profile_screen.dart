@@ -93,6 +93,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   },
                                   child: Text("Cancel")),
                               FilledButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStatePropertyAll(
+                                          Colors.black)),
                                   onPressed: () {
                                     setState(() {
                                       district = districtController.text;
